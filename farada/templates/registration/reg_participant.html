@@ -1,0 +1,102 @@
+{% extends 'shared/shared.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+    <!-- login-section-->
+    <div class="container" style="padding-top:250px;">
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
+            <div class="row row-eq-height">
+                <!-- login-block-->
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 nopr ">
+                    <div class="register-block">
+                        <h2 class="text-white text-uppercase text-bold mb40">Welcome To
+    Farada register as a Participant</h2>
+    <hr>
+                       <ul class="list-none arrow">
+                        <li>Nulla cursisus sed cursus pulvin nisi eros rutrum.</li>
+                        <li>Integer a accumsan naorbi aliquam consea.</li>
+                        <li>Etiam ullamcorpe quamat dapibus tincidumpus.</li>
+                        <li>Duis ac semper erasrisus mlaoreeoretra sedvelies.</li>
+                           
+    
+                       </ul>
+                    </div>
+                </div>
+                <!-- /.login-block-->
+                <!-- login-form-->
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 nopl ">
+                    <div class="login-form">
+                        <div class="login-icon"><img src="{% static 'resources/images/user_icon.png' %}" alt=""></div>
+                        <form method="POST" action=".">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                    <div class="form-group">
+                                            {{ form.username|as_crispy_field}}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                <div class="form-group">
+                                    {{ form.first_name|as_crispy_field}}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    {{ form.last_name|as_crispy_field}}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    {{ form.email|as_crispy_field}}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    {{ form.dob|as_crispy_field}}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    {{ form.phone_number|as_crispy_field}}
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    {{ form.address|as_crispy_field}}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    {{ form.password1|as_crispy_field}}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    {{ form.password2|as_crispy_field}}
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <input type="submit" value="Submit" class="btn btn-primary btn-sm" />
+                            </div>
+                                </div>
+                            </form>
+        
+                        <p class="text-uppercase">Already Have An Account? <a href="{% url 'accounts:login-page' %}">Login</a></p>
+                    </div>
+                </div>
+                <!-- /.login-form-->
+            </div>
+        </div>
+        <!-- /.login-section-->
+{% endblock %}

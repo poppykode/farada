@@ -1,0 +1,158 @@
+{% extends 'shared/shared.html' %}
+{% load staticfiles %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="hero-section">
+    <div class="container">
+        <div class="row ">
+            <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12 ">
+                <!--  hero-block-->
+                <div class="hero-block">
+                    <h1 class="hero-title mb30 f-shadow">We’re The Next<br> Generation of Care</h1>
+                    <p class="text-white f-shadow">We are specialists in what we do.</p>
+                    <a href="#" class="btn-link">Register</a>
+                </div>
+                <!--  /.hero-block-->
+            </div>
+            <div class="offset-xl-1 col-xl-6 offset-lg-1 col-lg-6 col-md-12 col-sm-12 col-12 ">
+                <!--  hero-block-form -->
+                <div class="hero-block-form">
+                    <h3 class="mb20">Quick Search</h3>
+                    <form>
+                        <div class="form-group">
+                            <label class="control-label sr-only" for="select"></label>
+                            <div class="select">
+                                <select id="select" name="select" class="form-control">
+                                    <option value="">Receive or Offer Services</option>
+                                    <option value="">Participant</option>
+                                    <option value="">Provider</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label sr-only" for="select"></label>
+                            <div class="select">
+                                <select id="select" name="select" class="form-control">
+                                    <option value="">Service Type</option>
+                                    <option value="">Residential Apartment</option>
+                                    <option value="">Commercial Office/Space</option>
+                                    <option value="">Independent House/Villa</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label sr-only" for="select"></label>
+                            <div class="select">
+                                <select id="select" name="select" class="form-control">
+                                    <option value="">City</option>
+                                    <option value="">Gujarat</option>
+                                    <option value="">Rajasthan</option>
+                                    <option value="">Goa</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 pdr2 mb10">
+                                <div class="form-group">
+                                    <label class="control-label sr-only" for="select"></label>
+
+                                    <div class="">
+                                        <input type="date" name="date" id="" class="form-control">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 pdl2 mb10">
+                                <div class="form-group">
+                                    <label class="control-label sr-only" for="time"></label>
+                                    <div class="">
+                                        <input type="time" name="time" id="time" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" name="singlebutton" class="btn btn-default btn-sm"><i
+                                class="fa fa-search mr-2"></i>Go !</button>
+                    </form>
+                </div>
+                <!--  /.hero-block-form -->
+            </div>
+        </div>
+    </div>
+</div>
+<!--  /.hero-section -->
+<!--  features-section -->
+<div class="space-small" style="text-align: center;">
+    <div class="container">
+        <div class="row">
+            <!--  features -->
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                <div class="feature">
+                    <div class="feature-icon"><img src="{% static 'resources/images/farada/feet.png' %}" alt=""
+                            srcset=""></div>
+                    <div class="feature-content">
+                        <h4 class="mb30">General Podiatry</h4>
+
+                    </div>
+                </div>
+            </div>
+            <!--  /.features -->
+            <!--  features -->
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                <div class="feature">
+                    <div class="feature-icon"><img src="{% static 'resources/images/farada/sports.png' %}" alt=""
+                            srcset=""></div>
+                    <div class="feature-content">
+                        <h4 class="mb30">Sports Podiatry & Biomechanical Assessments</h4>
+
+                    </div>
+                </div>
+            </div>
+            <!--  /.features -->
+            <!--  features -->
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                <div class="feature">
+                    <div class="feature-icon"><img src="{% static 'resources/images/farada/foam.png' %}" alt=""
+                            srcset=""></div>
+                    <div class="feature-content">
+                        <h4 class="mb30">Foot Orthoses and Innersoles </h4>
+
+                    </div>
+                </div>
+            </div>
+            <!--  /.features -->
+            <!--  features -->
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                <div class="feature">
+                    <div class="feature-icon"><img src="{% static 'resources/images/farada/baby.png' %}" alt=""
+                            srcset=""></div>
+                    <div class="feature-content">
+                        <h4 class="mb30">Children’s Feet (Paediatrics)</h4>
+
+                    </div>
+                </div>
+            </div>
+            <!--  /.features -->
+        </div>
+    </div>
+</div>
+<!--  /.features-section -->
+<!-- about -->
+<div class="space-medium about-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="offset-xl-1 col-xl-10 offset-lg-1 col-lg-10 col-md-12 col-sm-12 col-12">
+                <div class="about-section">
+                    <h2>Who We Are</h2>
+                    <p class="lead mb40">Donec tincidunmassa tincidunt facilisis ornarean condimentum etnisiin
+                        euismouiac ultrices fuisque consequat nislquis quam pretiumete cicilrices fuisque consequat
+                        nislquis quam pretiumeultrices fuisque consequa. </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.about -->
+{% endblock %}

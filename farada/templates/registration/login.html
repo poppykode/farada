@@ -1,0 +1,58 @@
+{% extends 'shared/shared.html' %}
+{% load staticfiles %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+
+<!-- login-section-->
+<div class="container" style="padding-top:250px;">
+  {% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    {{ message }}
+  </div>
+  {% endfor %}
+  {% endif %}
+  <div class="row row-eq-height">
+    <!-- login-block-->
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 nopr text-center ">
+      <div class="login-block">
+        <h2 class="text-white text-uppercase text-bold">Welcome To
+          Farada</h2>
+        <p class="lead text-white">Don’t Have An Account?</p>
+        <a href="{% url 'accounts:select_reg' %}" class="btn btn-default">Register Now</a>
+      </div>
+    </div>
+    <!-- /.login-block-->
+    <!-- login-form-->
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 nopl ">
+      <div class="login-form">
+        <div class="login-icon"><img src="{% static 'resources/images/user_icon.png' %}" alt=""></div>
+        <form method="POST" action="{% url 'accounts:login' %}">
+          {% csrf_token %}
+          <div class="form-group">
+            <label class="control-label sr-only" for="username"></label>
+            <input id="username" type="text" name="username" placeholder="Username" class="form-control mb0" required>
+          </div>
+          <div class="form-group">
+            <label class="control-label sr-only" for="password"></label>
+            <input id="password" type="password" name="password" placeholder="Password" class="form-control" required>
+          </div>
+          <button type="submit" name="singlebutton" class="btn btn-default btn-block mb10">submit</button>
+        </form>
+        <span>
+          <input id="box1" type="checkbox" class="with-font" />
+          <label for="box1" class="text-uppercase text-bold">Remember Me</label>
+        </span>
+        <span class="pull-right text-uppercase text-bold">Forgot Password?</span>
+        <p class="text-center mt-4">I Accept Farada's <strong>Terms of Use</strong></p>
+      </div>
+    </div>
+    <!-- /.login-form-->
+  </div>
+</div>
+<!-- /.login-section-->
+{% endblock %}

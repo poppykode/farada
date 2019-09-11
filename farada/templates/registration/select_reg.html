@@ -1,0 +1,40 @@
+{% extends 'shared/shared.html' %}
+{% load staticfiles %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="page-caption">
+                        <h1 class="page-title f-shadow">Register</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+            <div class="container">
+                    <div class="row">
+                        <!-- contact-cta -->
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 ">
+                            <div class="well-bg-block text-center">
+                                <h3 class="text-bold mb10">Register as Provider and povide services</h3>
+                               
+                                <a href="{% url 'accounts:provider_reg'%}" class="btn-link">Provider</a>
+                            
+                            </div>
+                        </div>
+                        <!-- /.contact-cta -->
+                        <!-- contact-cta -->
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 ">
+                            <div class="well-bg-block text-center">
+                                <h3 class="text-bold mb10">Register as Particpant and recieve services</h3>
+                                <a href="{% url 'accounts:participant_reg'%}" class="btn-link">Participant</a>
+                            </div>
+                        </div>
+                        <!-- /.contact-cta -->
+                    </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends 'shared/shared.html' %}
+{% load staticfiles %}
+{% block title %}Farada: Particpants{% endblock %}
+{% block content %}
+<div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="page-caption">
+                        <h1 class="page-title f-shadow">Participants</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row mt-5 mb-5">
+            <div class="col-md-8">
+    {% if data %}
+    {% for obj in data %}
+    
+                <div class="row mt-5 mb-5">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <img src="../../static/resources/images/team_img_3.jpg" alt="" srcset=""
+                                            class="img-fluid rounded">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h3 class="team-title">{{obj.first_name|title}} {{obj.last_name|title}} </h3>
+                                        <p class="team-content-text">{{obj.address|title}}</p>
+                                        {% if user.authenticated %}
+                                        <div class="team-meta">
+                                            <span class="team-meta-icon"><i class="fa fa-lg fa-keyboard-o"></i></span>
+                                            <span class="team-meta-text">DOB {{obj.dob}}</span>
+                                        </div>
+                                        {% endif %}
+                                        <div class="team-meta">
+                                            <span class="team-meta-icon"><i class="fa fa-lg fa-phone"></i></span>
+                                            <span class="team-meta-text">Phone Number {{obj.phone_number|truncatechars:5}}</span>
+                                        </div>
+                                        <div class="team-meta">
+                                            <span class="team-meta-icon"><i class="fa fa-lg fa-building-o"></i></span>
+                                            <span class="team-meta-text">City {{obj.city|title}}.</span>
+                                        </div>
+                                        <div class="team-meta">
+                                            <span class="team-meta-icon"><i class="fa fa-lg fa-envelope-open-o"></i></span>
+                                            <span class="team-meta-text">Email {{obj.email|truncatechars:5}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                            </div>
+                            <div class="card-footer">
+    
+                                <a href="#" class="card-link" style="color:#fff;">Offer</a>
+
+                            </div>
+                        </div>
+                    </div>
+    
+    
+                </div>
+                {% endfor %}
+                {% else %}
+    
+                <h1>No registered participants available</h1>
+                {% endif %}
+            </div>
+            <div class="col-md-4">
+                <input type="search" name="search" id="" class="form-control">
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                        <div class="pagination mt40" style="margin-bottom:20px;">
+                            <span class="step-links">
+                                    {% if data.has_previous %}
+                                            <a href="?page=1" class="dt-pagination rounded">&laquo; first</a>
+                                            <a href="?page={{ data.previous_page_number }}" class="dt-pagination">previous</a>
+                                    {% endif %}
+                    
+                                    <span class="current dt-pagination rounded">
+                                            Page {{ data.number }} of {{ data.paginator.num_pages }}.
+                                    </span>
+                    
+                                    {% if data.has_next %}
+                                            <a href="?page={{ data.next_page_number }}" class="dt-pagination">next</a>
+                                            <a href="?page={{ data.paginator.num_pages }}"  class="dt-pagination">last &raquo;</a>
+                                    {% endif %}
+                            </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

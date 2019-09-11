@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>{% block title %}{% endblock %} </title>
+    <!-- Bootstrap -->
+    <link href="{% static 'resources/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Style CSS -->
+    <link href="{% static 'resources/css/style.css' %}" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <!-- owl-carousel -->
+    <link href="{% static 'resources/css/owl.carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'resources/css/owl.theme.default.css' %}" rel="stylesheet">
+    <!-- FontAwesome CSS -->
+    <link href="{% static 'resources/css/font-awesome.min.css' %}" rel="stylesheet">
+    <!-- Fontello CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'resources/css/fontello.css' %}">
+</head>
+
+<body>
+    <!-- header-section-->
+    <div class="header-wrapper fixed-top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-2 col-lg-3 col-md-12 col-sm-12 col-12">
+                    <div class="logo"> <a href="{% url 'corporate:home' %}"><h1 style="color:#fff;"><img src="{% static 'resources/images/farada/logo-img.jpg' %}" alt="logo" srcset=""> </h1></a> </div>
+                </div>
+                <div class="col-xl-7 col-lg- col-md-12 col-sm-12 col-12">
+                    <!-- navigations-->
+                    <div class="navigation">
+                        <div id="navigation">
+                            <ul>
+                               
+                                    <li class="active"><a href="{% url 'corporate:home' %}" title="Home">HOME</a></li>
+                                    <li><a href="{% url 'user_dashboard:providers' %}" title="Providers">PROVIDERS</a> </li>
+                                    <li><a href="{% url 'user_dashboard:participants' %}" title="Providers">PARTICIPANTS </a> </li>
+                                  
+                                    <!-- <li><a href="{% url 'corporate:about' %}" title="About us">About Us</a> </li>
+                             
+                          
+                                    <li><a href="{% url 'corporate:contact' %}" title="Contact Us">Contact Us</a>
+                                    </li> -->
+                                 
+                               
+                               
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /.navigations-->
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 d-none d-xl-block d-lg-block">
+                    <div class="header-quick-info">
+                        <ul class="list-none">
+                                {% if not user.is_authenticated %}
+                                <li><a href="{% url 'accounts:login-page' %}" title="Login"><span><i class="fa fa-user"></i></span> LOGIN</a> </li>
+                                <li><a href="{% url 'accounts:select_reg' %}" title="Register"><span><i class="fa fa-pencil"></i></span> REGISTER</a> </li>
+                                {% else %}
+                                <li><a href="{% url 'logout' %}" title="Login"><span><span class="fa-stack"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-user fa-stack-1x fa-inverse"></i></span></span>{{user.username|upper}} </a> </li>
+                                <li><a href="{% url 'logout' %}" title="Login">LOGOUT</a> </li>
+                                {% endif %}
+                            <!-- <li class="text-red"><i class="fa fa-user-circle"></i></li>
+                            <li><a href="#">Login</a></li>
+                            <li> | </li>
+                            <li><a href="#">  Register</a> </li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /. header-section-->
+    {% block content %}
+  
+     {% endblock %}
+    <!-- footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="row ">
+                <!-- footer-about -->
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
+                    <div class="footer-widget ">
+                        <div class="footer-title">About Us</div>
+                        <p>Sed sed ligula srisque commodo libersan sero augue In conguenibh olutpa.</p>
+                        <p><i class="icon-032-placeholder ft-contact-icon"></i>332 Irving Place Augusta, US 63332</p>
+                        <div class="social-icon mb20 "> <a href="# " class="btn-social-circle btn-facebook"><i class="fa fa-facebook "></i></a> <a href="# " class="btn-social-circle btn-twitter "><i class="fa fa-twitter "></i></a> <a href="# " class="btn-social-circle btn-linkedin "><i class="fa fa-linkedin "></i></a> 
+                            </div>
+                    </div>
+                </div>
+                <!-- /.footer-about -->
+                <!-- footer-links -->
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
+                    <div class="footer-widget ">
+                        <div class="footer-title">Quick Links</div>
+                        <ul class="angle list-none">
+                            <li><a href="{% url 'corporate:home' %}">Home</a></li>
+                            <li><a href="{% url 'corporate:about' %}">About Us</a></li>
+                            <li><a href="{% url 'corporate:contact' %}">contact us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /.footer-links -->
+                <!-- footer-links -->
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
+                    <div class="footer-widget ">
+                        <div class="footer-title">Contact Details</div>
+                        <ul class="list-none">
+                            <li><a href="#"><span style="color:#F58CB5;"><i class="fa fa-lg fa-phone"></i></span>   <span>+267 999 7777 67</span></a></li>
+                            <li><a href="#"><span style="color:#F58CB5;"><i class="fa fa-lg fa-envelope-open-o"> </i></span>    <span>info@farada.com.au</span> </a></li>
+                            <li><a href="#"><span style="color:#F58CB5;"><i class="fa fa-lg fa-map-marker"></i></span>  <span>332 Irving Place Augusta, AU 63332</span> </a></li>
+                           
+                        </ul>
+                    </div>
+                </div>
+                <!-- /.footer-links -->
+        
+            </div>
+        </div>
+        <div class="tiny-footer ">
+            <div class="container ">
+                <div class="row ">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center ">
+                        <p>Copyright © All Rights Reserved {% now "Y" %} | Farada <a href="https://easetemplate.com/ " target="_blank" class="copyrightlink"></a></p>
+                    </div>
+                </div>
+                <!-- /. tiny-footer -->
+            </div>
+        </div>
+    </div>
+        <!-- /.footer -->
+        <a href="javascript:" id="return-to-top"><i class="fa fa-angle-up"></i></a>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="{% static 'resources/js/jquery.min.js' %}"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="{% static 'resources/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'resources/js/menumaker.js' %}"></script>
+        <script src="{% static 'resources/js/return-to-top.js' %}"></script>
+        <script src="{% static 'resources/js/navigation.js' %}"></script>
+        <script src="{% static 'resources/js/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'resources/js/multiple-carousel.js' %}"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+              $('.dateinput').datepicker({ format: "yyyy/mm/dd" });
+           }); 
+        </script>
+</body>
+
+</html>

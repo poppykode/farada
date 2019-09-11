@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>{% block title %}{% endblock %}</title>
+    <!-- Bootstrap -->
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Style CSS -->
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i" rel="stylesheet">
+    <link href="{% static 'assets/css/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/owl.theme.default.css' %}" rel="stylesheet">
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/fontello.css' %}">
+    <link href="{% static 'assets/css/font-awesome.min.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="header-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                    <a href="{% url 'corporate:home' %}"><img src="{% static 'assets/images/logo-img.jpg' %}" alt="" style="height:56px;"></a>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                    <div class="navigation">
+                        <div id="navigation">
+                            <ul>
+                                <li class="active"><a href="{% url 'corporate:home' %}" title="Home">Home</a></li>
+                                <li><a href="#" title="Providers">Providers</a> </li>
+                                <li><a href="#" title="Providers">Participants </a> </li>
+                              
+                                <!-- <li><a href="{% url 'corporate:about' %}" title="About us">About Us</a> </li>
+                         
+                      
+                                <li><a href="{% url 'corporate:contact' %}" title="Contact Us">Contact Us</a>
+                                </li> -->
+                             
+                                {% if not user.is_authenticated %}
+                                <li><a href="{% url 'accounts:login-page' %}" title="Login"><span><i class="fa fa-user"></i></span> Login</a> </li>
+                                <li><a href="{% url 'accounts:select_reg' %}" title="Register"><span><i class="fa fa-pencil"></i></span> Register</a> </li>
+                                {% else %}
+                                <li><a href="{% url 'logout' %}" title="Login"><span><i class="fa fa-user"></i></span> logout</a> </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+   
+            </div>
+        </div>
+    </div>
+    <!-- header-section close -->
+   <div class="container">
+        {% block content %}
+  
+        {% endblock %}
+   </div>
+    <!-- footer start -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- footer-about-start -->
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+                    <div class="footer-widget">
+                        <h3 class="footer-title">Contact Infomation</h3>
+                        <div class="">
+                            <ul>
+                                <li> <i class="icon-placeholder"></i>2177 Shearwood Forest , NH 03801</li>
+                                <li><i class="icon-phone-call"></i>+180-123-4567</li>
+                                <li><i class="icon-envelope"></i>info@dietcoach.com</li>
+                            </ul>
+                        </div>
+                        <div class="footer-social"> <a href="#"><span><i class="fa fa-facebook-square"></i></span></a>
+                            <a href="#"><span><i class="fa fa-google-plus-square"></i></span> </a> <a href="#"><span
+                                    class="active"><i class="fa fa-twitter-square"></i> </span></a> <a href="#"><span><i
+                                        class=" fa fa-pinterest-square"></i> </span></a> <a href="#"><span><i
+                                        class="fa fa-linkedin-square"></i></span></a> </div>
+                    </div>
+                </div>
+                <!-- footer-useful links-start -->
+                <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="footer-widget">
+                        <h3 class="footer-title">Quick Links</h3>
+                        <ul class="angle angle-right">
+                            <li><a href="#">Home </a></li>
+                            <li><a href="#">Providers </a></li>
+                            <li><a href="#">Participants</a></li>
+                            <li><a href="#">ontact Us </a></li>
+                            <li> <a href="#">About Us</a></li>
+                            <li> <a href="#">T & Cs</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- footer-useful links-close -->
+                <!-- footer-form-start -->
+                <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="footer-widget">
+                        <h3 class="footer-title">contact us</h3>
+                        <form>
+                            <div class="form-group">
+                                <label class="control-label sr-only" for="name"></label>
+                                <input id="name" type="text" class="form-control" placeholder="Name">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label sr-only" for="Email"></label>
+                                <input id="email" type="text" class="form-control" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label sr-only" for="Phone"></label>
+                                <input id="phone" type="text" class="form-control" placeholder="Phone">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label sr-only" for="textarea"></label>
+                                <textarea class="form-control" id="textarea" name="textarea" rows="3"
+                                    placeholder="textarea"></textarea>
+                            </div>
+                            <button class="btn btn-primary btn-sm">submit</button>
+                        </form>
+                    </div>
+                </div>
+                <!-- footer-tiny-text-start -->
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="tiny-footer">
+                        <p>© {% now "Y" %} - Farada. All Rights Reserved.</p>
+                    </div>
+                </div>
+                <!-- footer-tiny-text-start -->
+                <!-- footer-form-close -->
+            </div>
+        </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{% static 'assets/js/jquery.min.js' %}" type="text/javascript"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'assets/js/bootstrap.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'assets/js/navigation.js' %}" type="text/javascript"></script>
+    <script src="{% static 'assets/js/menumaker.js' %}" type="text/javascript"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.sticky.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/sticky-header.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/slider.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/testimonial-slider.js' %}"></script>
+    <script>
+    $(function(){
+        $('.datetime-input').datetimepicker({
+            'format':'YYYY-MM-DD'
+        });
+    });
+    </script>
+</body>
+
+</html>
